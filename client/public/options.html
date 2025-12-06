@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Agent The Agent - Settings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 13px;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .checkbox-label {
+            text-transform: none;
+            margin: 0;
+            font-weight: 400;
+            letter-spacing: normal;
+            cursor: pointer;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-save {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-save:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-reset {
+            background: #f0f0f0;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .btn-reset:hover {
+            background: #e8e8e8;
+        }
+
+        .status-message {
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            display: none;
+        }
+
+        .status-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .status-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+
+        .info-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #333;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 The Agent Settings</h1>
+        <p class="subtitle">Configure your AI-powered browser agent</p>
+
+        <div id="status-message" class="status-message"></div>
+
+        <div class="section">
+            <h2>API Configuration</h2>
+            <div class="info-box">
+                💡 To use advanced AI features, you'll need an API key from an AI service provider.
+            </div>
+
+            <div class="form-group">
+                <label for="api-provider">AI Provider</label>
+                <select id="api-provider">
+                    <option value="openai">OpenAI</option>
+                    <option value="anthropic">Anthropic Claude</option>
+                    <option value="google">Google Gemini</option>
+                    <option value="local">Local Model (Experimental)</option>
+                </select>
+                <div class="help-text">Choose your preferred AI service provider</div>
+            </div>
+
+            <div class="form-group">
+                <label for="api-key">API Key</label>
+                <input type="password" id="api-key" placeholder="Enter your API key here">
+                <div class="help-text">Your API key is stored locally and never shared</div>
+            </div>
+
+            <div class="form-group">
+                <label for="model">Model</label>
+                <input type="text" id="model" placeholder="e.g., gpt-4-turbo, claude-3-opus">
+                <div class="help-text">Specify the AI model to use for task execution</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Behavior Settings</h2>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="auto-mode">
+                    <label for="auto-mode" class="checkbox-label">Auto-execute tasks without confirmation</label>
+                </div>
+                <div class="help-text">When enabled, tasks will execute automatically. When disabled, you'll see a confirmation dialog first.</div>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="verbose-logging">
+                    <label for="verbose-logging" class="checkbox-label">Enable verbose logging</label>
+                </div>
+                <div class="help-text">Show detailed logs of all agent actions for debugging</div>
+            </div>
+
+            <div class="form-group">
+                <label for="timeout">Task Timeout (seconds)</label>
+                <input type="number" id="timeout" min="10" max="300" value="60">
+                <div class="help-text">Maximum time to wait for a task to complete</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Advanced Options</h2>
+
+            <div class="form-group">
+                <label for="max-retries">Max Retries</label>
+                <input type="number" id="max-retries" min="0" max="5" value="3">
+                <div class="help-text">Number of times to retry failed actions</div>
+            </div>
+
+            <div class="form-group">
+                <label for="custom-instructions">Custom Instructions</label>
+                <textarea id="custom-instructions" rows="4" placeholder="Add any custom instructions for the agent..."></textarea>
+                <div class="help-text">These instructions will be sent with every task to guide the agent's behavior</div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-save" id="save-btn">Save Settings</button>
+            <button class="btn-reset" id="reset-btn">Reset to Defaults</button>
+        </div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+</html>
